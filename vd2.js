@@ -1,153 +1,117 @@
-//1-  .map()
+// var myName="John";
+// console.log(myName)
 
-// let array=[1,2,3,4,5];
+// const myName=[];
+// console.log(myName);  
+// myName.push("John");
+// console.log(myName);
 
-// function forMap(element){
-//     return element*element;
-// }
-// let newArray = array.map(forMap);
-
-// let newArray=array.map((forMap,index) => {
-//     console.log(index);
-//     return forMap*forMap})
-//let newArray=array.map((forMap,index) => forMap*forMap)
-// console.log(newArray);
-
-
-//2- .forEach()
-
-// let array=[1,2,3,4,5];
-// array.forEach((element,index) => {
-//     console.log(element);
-// })
+// let myName="John";
+// console.log(myName);
+// myName="Alex";
+// console.log(myName);
+//let myName="hello";      //cannot redeclare the variable used with let 
 
 
-//3- .filter()
-
-// let array=[10,20,30,40,50]
-// let newArray=array.filter((element) => element>=30) //it will check the condtion and will return a boolean, if the boolean is true then it will add that number to the newArray
-// console.log(newArray)
+// var myName="John";
+// console.log(myName);
+// myName="Alex";
+// console.log(myName);   
+// var myName="Revant";    //with var keyword we can reassign and redeclare the variable 
 
 
 
-//4- .find()
 
-// let array=[10,20,30,40,50];
-// let temp = array.find((value) => {    //it will check the condtion and will return a boolean, if the boolean is true then it will terminate the line there only
-//     return value>20;
-// }
-// )
-// console.log(temp)
+//  <----String Interpolation---->
 
+// let firstName="Revant";
+// let lastName="Tripathi";
+// let fullName =firstName + " " + lastName   this is going to take extra space So, we will use this method
 
-//4- .sort()
-
-// let array= [20,40,10,70,50,25,111]
-// let sortedArray=array.sort((el1,el2) => {
-//     el1=Number(el1);
-//     el2=Number(el2);
-//     return el1-el2;
-// })
-// console.log(sortedArray);
+// let fullName= `${firstName} ${lastName}`;
+// console.log(fullName);
 
 
 
-//4- Object Destructuring
 
-// let myObject={
-//     name:"Alex",
-//     age:"24",
-//     address:{
-//         street: "Brooklyn",
-//         city:"New york",
-//         state:"NY",
-//         country:"USA",
-//         passportDetails:{
-//             passportNumber:"ABCD1234",
-//         },
-//     },
+// <---- Default Params --->
+
+// function addTwoNum(num1,num2){
+//     return num1+num2;
 // }
 
-// let {name:myName,age}= myObject;   //this is object destructuring here we are fetching the name and age and storing it in myName  
-// console.log(myName,age)
+// let addTwoNum= (num1,num2) =>{       //arrow function
+//     console.log(num1);  //it will print 1
+//     console.log(num2);  //it will print undefined
+//     return num1+num2;    //it will print NaN
+// };
 
-
-//6- Array matching
-// if the length of arrays are not matching then they will not match
-// if the both arrays are pointing to the same refrence then they are the same array
-
-//check their refrence
-//if(array1==array2)
+// console.log(addTwoNum(1));
 
 
 
-//7- Object matching
+//<---Rest and Spread Operator
 
-// let obj1={name:"Revant",}
-// let obj2={name:"Revant"}
+let array= [5,10,15,20,25];
 
-// function areEqual(){
-//     if(obj1==obj2){
-//         return true;
+//spread Operator --> ...          //operator overloading(same symbol different function)
+// console.log(...array);     //it will print 5 10 15 20 25
+// console.log(array);     //it will print [5 10 15 20 25]
+// let newarray= [...array, 30, 34, 35]      //to make a copy of array we can also add new elements in array
+// console.log(newarray);
+                   //complexity of spread operator in O(n) n is size of array
+
+
+
+//Rest -->  ...
+// let maxOfTwoNum =(...numbers) =>{    //to accept multiple argument we use rest operator
+//     let maximum = Number.MIN_VALUE;
+//     for(let number of numbers){
+//         maximum = Math.max(maximum, number);
 //     }
-//     if(Object.keys(obj1).length != Object.keys(obj2).lenght){
-//         return false;
-//     }
-//     for(let key of Objects.keys(obj1)){
-//         if(typeof obj2[key]== "undefined"){
-//                 return false;
-//         }
-//         if(obj2[key] != obj1[key]){
-//             return false;
-//         } 
-//     }
-//     return true;
-// }
+//     return maximum;
+// } ;
 
-// console.log(areEqual(obj1,obj2));
+// console.log(maxOfTwoNum(2,5,3,1,7,8))
 
 
+//Rest and Spread Operator are applicable in arrays and objects
 
-//8- Map and Set
+//for Object
 
-// let map= new Map();
-// map.set(1,"Revant");
-// map.set(2,"Alex")
-// console.log(map)
+// let object={
+//     name:"John",
+//     age:24,
+//     city: "New York",
+// };
 
-// let set =new Set();
-// set.add(1);
-// set.add(-1);
+// let object2= {...object, country:"USA",} //name:"revant"}             // it will make clone of object in object 2 , we can also add extra key value pair//we can also overwrite name: "Revant" then it will replace the name with Revant in object2
 
-// console.log(set);
-
-
-//9- Classes
-
-class Animal {
-    noOfLegs;
-    color;
-    family;
-    sound;
-
-    constructor(noOfLegs,color,family,sound){
-        this.noOfLegs = noOfLegs;
-        this.color=color;
-        this.family=family;
-        this.sound=sound;
-
-    }
-    showAnimal(){
-        console.log(`The animal belongs to family ${this.family}`)
-    }
-}
+// console.log(object2);
 
 
-let animal = new Animal(4,"brown","rodent","Phew Phew")
-animal.showAnimal();
+let object={
+    name:"John",
+    age:24,
+    address:{
+        city:"New York",
+        state:"NY",
+        country: "USA",
+    },
+};
 
+let object2={...object}
+object2.address.city="Newark"
+console.log(object2);
+console.log(object);   //both object and object will print the city as Newark only, this is the example of shallow cloning
+// in shallow cloning all the key value pair are being copied but  in the case nested object only refrence are getting passed 
 
+//to do deep cloning
 
+// let object2=JSON.parse(JSON.stringify)
+// object2.address.city="Newark"
+// console.log(object2);
+// console.log(object);
 
 
 
