@@ -1,12 +1,17 @@
-let n=10;
+// let n=10;
 
-function testFunction(a){
-    console.log(a);
+// function testFunction(a){
+//     console.log(a);
+// }
+
+// function demoFunction(){
+//     let b=n+10;
+//     testFunction(b);
+// }
+
+// demoFunction();
+function demoFunction (){
+    return [1,2]
 }
-
-function demoFunction(){
-    let b=n+10;
-    testFunction(b);
-}
-
-demoFunction();
+let [abc, def]=demoFunction();
+console.log(`Abc is ${abc} and DEF is ${def}`);
